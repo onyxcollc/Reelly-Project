@@ -11,9 +11,16 @@ def browser_init(context):
     """
     :param context: Behave context
     """
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
+    ## CHROME ##
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service)
+
+
+    ## FIREFOX ##
+    context.driver = webdriver.Firefox()
+
+
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
