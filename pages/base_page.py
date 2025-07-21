@@ -59,6 +59,15 @@ class BasePage:
             message=f" Element by {locator} not clickable  "
         ).click()
 
+
+    def wait_for_element_visibility(self, *locator):
+        logger.info(f'Waiting for element to be visible {locator}')
+        self.wait.until(
+            EC.visibility_of_element_located(locator),
+            message=f" Element by {locator} not visible "
+        ).click()
+
+
     def wait_for_element(self, *locator):
         logger.info(f'Waiting for element {locator}')
         self.wait.until(

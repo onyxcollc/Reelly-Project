@@ -31,6 +31,14 @@ class OffPlanPage(BasePage):
         self.driver.save_screenshot("screenshots/06_announced_btn.png")
 
 
+    def verify_off_plan_page_opened(self):
+        self.verify_text("Off-plan",*self.OFF_PLAN_TXT)
+        self.driver.save_screenshot("screenshots/04_off_plan_opened.png")
+
+
+
+
+
     def verify_announced_tag(self):
 
         self.click_outside()
@@ -60,9 +68,6 @@ class OffPlanPage(BasePage):
 
 
 
-    def verify_off_plan_page_opened(self):
-        self.verify_text("Off-plan",*self.OFF_PLAN_TXT)
-        self.driver.save_screenshot("screenshots/04_off_plan_opened.png")
 
 
 
