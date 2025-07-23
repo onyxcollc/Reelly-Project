@@ -27,6 +27,7 @@ class OffPlanPage(BasePage):
 
 
     def announced_btn(self):
+        sleep(5)
         self.wait_for_element_click(*self.ANNOUNCED_BTN)
         self.driver.save_screenshot("screenshots/06_announced_btn.png")
 
@@ -40,9 +41,8 @@ class OffPlanPage(BasePage):
 
 
     def verify_announced_tag(self):
-
         self.click_outside()
-        sleep(3)
+        sleep(5)
         cards = self.driver.find_elements(*self.BUILDING_CARDS)
         assert cards, " No building cards found."
 

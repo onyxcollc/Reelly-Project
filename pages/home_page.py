@@ -17,6 +17,6 @@ class HomePage(BasePage):
 
 
     def off_plan_tab(self):
-        sleep(3)
+        sleep(5)
         self.wait_for_element_click(*self.OFF_PLAN_TAB)
         self.driver.save_screenshot("screenshots/03_off_plan_tab.png")

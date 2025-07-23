@@ -21,11 +21,11 @@ class LogInPage(BasePage):
 
 
     def enter_password(self,password):
-        self.input_text(password,*self.PASSWORD_VALUE)
         sleep(3)
+        self.input_text(password,*self.PASSWORD_VALUE)
 
 
     def continue_button(self):
+        sleep(3)
         self.click(*self.CONTINUE_BTN)
         self.driver.save_screenshot('screenshots/02_continue_button.png')
-        sleep(3)
