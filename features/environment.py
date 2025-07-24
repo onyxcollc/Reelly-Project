@@ -20,7 +20,7 @@ def browser_init(context, scenario_name):
 
 
     ## FIREFOX ##
-    # context.driver = webdriver.Firefox()
+    #context.driver = webdriver.Firefox()
 
 
     ## HEADLESS MODE ##
@@ -34,7 +34,7 @@ def browser_init(context, scenario_name):
 
 
     ### BROWSERSTACK ###
-    #Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
+   # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
     bs_user = 'nicoolumese_7cY5dg'
     bs_key = 'YHgF8m3qX8JfM2PCeXPs'
     url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
@@ -43,7 +43,7 @@ def browser_init(context, scenario_name):
     bstack_options = {
         "os" : "OS X",
         "osVersion" : "Sequoia",
-        'browserName': 'Safari',
+        'browserName': 'Chrome',
         'sessionName': scenario_name,
     }
     options.set_capability('bstack:options', bstack_options)
