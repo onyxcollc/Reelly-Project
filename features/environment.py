@@ -35,20 +35,28 @@ def browser_init(context, scenario_name):
 
     ### BROWSERSTACK ###
    # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
-    bs_user = 'nicoolumese_7cY5dg'
-    bs_key = 'YHgF8m3qX8JfM2PCeXPs'
-    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+   #  bs_user = 'nicoolumese_7cY5dg'
+   #  bs_key = 'YHgF8m3qX8JfM2PCeXPs'
+   #  url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+   #
+   #  options = Options()
+   #  bstack_options = {
+   #      "os" : "OS X",
+   #      "osVersion" : "Sequoia",
+   #      'browserName': 'Chrome',
+   #      'sessionName': scenario_name,
+   #  }
+   #  options.set_capability('bstack:options', bstack_options)
+   #  context.driver = webdriver.Remote(command_executor=url, options=options)
 
-    options = Options()
-    bstack_options = {
-        "os" : "OS X",
-        "osVersion" : "Sequoia",
-        'browserName': 'Chrome',
-        'sessionName': scenario_name,
-    }
-    options.set_capability('bstack:options', bstack_options)
-    context.driver = webdriver.Remote(command_executor=url, options=options)
 
+
+    ### Chrome Mobile Emulation ###
+    mobile_emulation = {"deviceName": "iPhone SE"}
+    options = webdriver.ChromeOptions()
+    options.add_experimental_option("mobileEmulation", mobile_emulation)
+    service = Service(ChromeDriverManager().install())
+    context.driver = webdriver.Chrome(service=service, options=options)
 
 
     context.driver.maximize_window()
