@@ -41,8 +41,8 @@ def browser_init(context, scenario_name):
    #
    #  options = Options()
    #  bstack_options = {
-   #      "os" : "OS X",
-   #      "osVersion" : "Sequoia",
+   #      "os" : "Samsung",
+   #      "osVersion" : "13",
    #      'browserName': 'Chrome',
    #      'sessionName': scenario_name,
    #  }
