@@ -46,6 +46,8 @@ def browser_init(context, scenario_name):
     #     'browserName': 'Chrome',
     #     'sessionName': scenario_name,
     # }
+
+
     bstack_options = {
         'deviceName': 'Samsung Galaxy S22 Ultra',  # Replace with desired device
         'platformName': 'Android',  # Or 'iOS'
