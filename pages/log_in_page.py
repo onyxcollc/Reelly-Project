@@ -13,7 +13,7 @@ class LogInPage(BasePage):
     EMAIL_VALUE = (By.CSS_SELECTOR, "[placeholder='Email']")
     PASSWORD_VALUE = (By.CSS_SELECTOR, "[placeholder='Password']")
     CONTINUE_BTN = (By.CSS_SELECTOR, "[wized='loginButton']")
-
+    CONTINUE_BTN_MOBILE = (By.CSS_SELECTOR,".login-button")
 
     def email_address(self,address):
         sleep(3)
@@ -29,3 +29,8 @@ class LogInPage(BasePage):
         sleep(3)
         self.click(*self.CONTINUE_BTN)
         self.driver.save_screenshot('screenshots/02_continue_button.png')
+
+    def continue_button_mobile(self):
+        sleep(3)
+        self.click_outside()
+        self.wait_for_element_visibility(*self.CONTINUE_BTN_MOBILE)

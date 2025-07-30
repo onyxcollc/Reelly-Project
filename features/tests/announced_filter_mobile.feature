@@ -4,7 +4,7 @@ Feature: User should be able to filter by Announced in Mobile mode
     Given Open main page
     When Enter email onyxcollc@gmail.com
     When Enter your Childish13!
-    And Click continue button
+    And Click continue button mobile
     When Click on Off plan bottom left of screen
     Then Verify the off-plan opens
     When Click Sale Status

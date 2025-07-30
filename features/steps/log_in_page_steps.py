@@ -13,4 +13,10 @@ def enter_password(context,password):
 def continue_button(context):
     context.app.log_in_page.continue_button()
 
+@when('Click continue button mobile')
+def continue_button_mobile(context):
+    context.app.log_in_page.continue_button_mobile()
+
+
+
 
