@@ -1,126 +1,138 @@
-🏙️ Reelly Project – End-to-End Automation Framework
-📲 Mobile & Web Automation | 🧪 Cross-Browser + Cloud Testing | 🧠 Dynamic Locator Handling
-This automation framework validates core real estate workflows on the Reelly platform using Python, Selenium, 
-and Behave (BDD). Tests simulate both desktop and mobile environments via Chrome Mobile Emulation and BrowserStack.
+# 🏠  REE⎯LLY PROJECT – END-TO-END AUTOMATION FRAMEWORK 
 
-🚀 Features at a Glance
-✅ BDD-style tests with Behave
+> 📲 **Mobile & Web Automation** &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 🧪 **Cross-Browser + Cloud Testing** &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 🧠 **Dynamic Locator Handling**
 
-✅ Modular design using the Page Object Model (POM)
+---
 
-✅ Chrome mobile emulation (e.g., iPhone SE, Nexus 5)
+This automation framework validates core real estate workflows on the **Reelly** platform using:
 
-✅ Real device testing with BrowserStack
+**`Python` + `Selenium` + `Behave (BDD)`**
 
-✅ Multi-browser compatibility (Chrome, Firefox, Edge)
+💻 Simulates **Desktop** and **Mobile** environments using **Chrome Emulation** and **BrowserStack** real devices.
 
-✅ Headless mode support for CI/CD
+---
 
-✅ Dynamic selectors for React-driven UI
+## 🚀 FEATURES AT A GLANCE
 
-✅ Screenshots on failure for visual debugging
+✨ **BDD-style tests** with `Behave`  
+🧩 **Page Object Model (POM)` structure**  
+📱 **Mobile emulation** (iPhone SE, Nexus 5, etc.)  
+📲 **Real-device testing** via `BrowserStack`  
+🌐 **Multi-browser support**: Chrome, Firefox, Edge  
+👻 **Headless mode** for CI/CD pipelines  
+🧠 **Dynamic selectors** for React-driven UI  
+📸 **Auto-screenshots** on failure  
 
+---
 
-📁 Project Structure
-<details> <summary>Click to expand</summary>
-bash
-Copy
-Edit
+## 📁 PROJECT STRUCTURE
+
 Reelly-Project/
-├── .venv/                  # Python virtual environment
-├── app/                   # Application-level setup
-├── features/              # .feature files + step definitions
-├── pages/                 # Page Object Model classes
-├── screenshots/           # Saved screenshots on failure
-├── support/               # Hooks, logger, and utilities
-├── test_results/          # JSON logs from executed runs
-│   └── c2324d3f-*.json     # Dynamic result files
-├── .gitignore             # Files to exclude from Git
-├── README.md              # This file 👋
-├── requirements.txt       # Python dependencies
-├── test_automation.log    # Runtime logs from test executions
-</details>
-🧪 Test Coverage
-💻 Desktop Web
-✅ Validate "Announced" tags on property cards
+├── .venv/ → Python virtual environment
+├── app/ → App-level config
+├── features/ → Feature files + step definitions
+├── pages/ → Page Object classes (POM)
+├── screenshots/ → Failure screenshots
+├── support/ → Hooks, logger, utilities
+├── test_results/ → JSON result logs
+├── requirements.txt → Project dependencies
+├── test_automation.log → Automation logs
+├── README.md → You’re looking at it ✅
 
-✅ Navigate and verify "Off-Plan" properties
-
-✅ Scroll-to-click in React-rendered elements
-
-✅ Screenshot validation on all key flows
-
-📱 Mobile Web
-✅ Simulate mobile view with ChromeOptions
-
-✅ Test on real Android devices via BrowserStack
-
-✅ Check responsive layout + mobile element visibility
-
-🌐 Cross-Browser Support
-✅ Chrome (desktop + mobile emulation)
-
-✅ Firefox
-
-✅ Edge
-
-✅ Headless execution
-
-🧱 Roadblocks & Creative Fixes
-🚧 Issue	💡 Solution
-Off-Plan tab hidden in mobile/headless	Used execute_script() + scrollIntoView()
-Dynamic tag elements failed with static locators	Built indexed + aria-label-based dynamic XPath
-Inconsistent headless rendering	Applied fixed window size + visibility wait
-Mobile viewport mismatch in BrowserStack	Tuned emulation settings for device parity
-Firefox layout discrepancies	Added universal selector logic with waits
-
-⚙️ How to Run the Project
-📦 1. Install Dependencies
-bash
+yaml
 Copy
 Edit
+
+---
+
+## 🧪 TEST COVERAGE
+
+### 💻 Desktop Web
+- ✅ Validate **`Announced`** tags  
+- ✅ Navigate + verify **Off-Plan** properties  
+- ✅ Scroll-to-click in dynamic React components  
+- ✅ Capture screenshots for all key flows  
+
+### 📱 Mobile Web
+- ✅ Emulate devices using `ChromeOptions`  
+- ✅ Run real Android tests on **BrowserStack**  
+- ✅ Validate responsive layout & visibility  
+
+### 🌐 Cross-Browser Support
+- ✅ Chrome (desktop + mobile)  
+- ✅ Firefox  
+- ✅ Edge  
+- ✅ Headless  
+
+---
+
+## 🧱 ROADBLOCKS & CREATIVE FIXES
+
+| ⚠️ Issue | ✅ Solution |
+|---------|-------------|
+| Off-Plan tab hidden on mobile/headless | Used `scrollIntoView()` + `execute_script()` |
+| Static locators failed | Built dynamic XPath w/ `aria-labels` & indexing |
+| Headless rendering issues | Set fixed window size + added visibility waits |
+| Mobile mismatch in BrowserStack | Tuned emulation for pixel-perfect parity |
+| Firefox layout quirks | Added flexible universal selector logic |
+
+---
+
+## ⚙️ HOW TO RUN THIS PROJECT
+
+### 📦 1. Install Dependencies
+
+```bash
 pip install -r requirements.txt
-🖥️ 2. Run in Chrome (Desktop)
-🔧 In environment.py: Uncomment local Chrome block
+💻 2. Run in Chrome (Desktop)
+Uncomment the Chrome section in environment.py:
 
 bash
 Copy
 Edit
 behave -i features/verify_announced.feature
 🦊 3. Run in Firefox
-🔧 Uncomment the Firefox driver section:
+Uncomment the Firefox driver section:
 
 bash
 Copy
 Edit
 behave -i features/verify_announced.feature
-🧑‍💻 4. Run in Headless Mode
-🔧 Uncomment the headless Chrome section:
+👤 4. Run in Headless Mode
+Uncomment the headless Chrome block:
 
 bash
 Copy
 Edit
 behave -i features/verify_announced.feature
-📲 5. Run in Chrome Mobile Emulation
-🔧 Uncomment the mobile emulation block (e.g. deviceName = "iPhone SE"):
+📲 5. Run Chrome Mobile Emulation
+Uncomment the mobile emulation block (e.g. iPhone SE):
 
 bash
 Copy
 Edit
 behave -i features/mobile_off_plan.feature
-☁️ 6. Run on BrowserStack (Cloud Mobile Device)
-✅ Already set up in environment.py
-🧪 Device: Samsung Galaxy S22 Ultra | Platform: Android | Browser: Chrome
-🔐 Credentials built into the URL config
+☁️ 6. Run on BrowserStack (Real Device)
+✅ Already pre-configured in environment.py
+🧪 Device: Samsung Galaxy S22 Ultra
+🔐 Credentials embedded via URL config
 
 bash
 Copy
 Edit
 behave -i features/mobile_off_plan.feature
-No extra flags needed.
 
-🧠 Final Thoughts
-The Reelly Automation Project combines cloud testing, dynamic UI validation,
-and multi-device compatibility into a clean, scalable framework. 
-With emulation, cross-browser support, and real-device runs on BrowserStack—this project
-simulates the real-world user journey from discovery to verification.
+🧠 FINAL THOUGHTS
+The Reelly Automation Framework blends:
+
+✅ Cloud testing
+✅ Real-device validation
+✅ Mobile emulation
+✅ Multi-browser support
+✅ React UI interaction
+
+Into one powerful, scalable automation suite.
+
+This simulates a true end-user journey across platforms — making it ready for the real world.
+
+
