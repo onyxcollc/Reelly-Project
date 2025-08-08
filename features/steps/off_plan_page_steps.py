@@ -11,6 +11,11 @@ def sale_status_tab(context):
     context.app.off_plan_page.sale_status_tab()
 
 
+@when('Click Price')
+def price_tab(context):
+    context.app.off_plan_page.price_tab()
+
+
 @when('Click Announced button')
 def announced_btn(context):
     context.app.off_plan_page.announced_btn()

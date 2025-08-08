@@ -1,6 +1,4 @@
 from time import sleep
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.common.by import By
 
@@ -13,6 +11,7 @@ class HomePage(BasePage):
 
 
     OFF_PLAN_TAB = (By.CSS_SELECTOR, "[wized='newOffPlanLink']")
+    MARKET_TAB = (By.XPATH, "//a[contains(@class,'menu-button-block')]//div[text()='Market']")
     OFF_PLAN_TAB_MOBILE = (By.CSS_SELECTOR,"div[wized*='mobileMenu'] a[wized='newOffPlanLink']")
 
 
@@ -20,6 +19,10 @@ class HomePage(BasePage):
         sleep(5)
         self.wait_for_element_click(*self.OFF_PLAN_TAB)
         self.driver.save_screenshot("screenshots/03_off_plan_tab.png")
+
+
+    def market_tab(self):
+        self.wait_for_element_click(*self.MARKET_TAB)
 
 
     def off_plan_tab_mobile(self):

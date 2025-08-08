@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.alert import Alert
 from time import sleep
 
 from pages.base_page import BasePage
@@ -15,6 +16,7 @@ class OffPlanPage(BasePage):
     SALE_STATUS_TAB = (By.XPATH,"//button[text()='Sale Status']")
     ANNOUNCED_BTN = (By.XPATH,"//div[text()='Announced']" )
     PRE_SALE_BTN = (By.XPATH,"//div[text()='Presale (EOI)']")
+    PRICE_TAB = (By.XPATH,"//button[text()='Price']")
     BUILDING_CARDS = (By.CSS_SELECTOR,".border.bg-card")
     PRE_SALE_CARDS = (By.CSS_SELECTOR,".border.bg-card.text-card-foreground")
     TAG_SELECTOR = (By.XPATH,"//span[text()='Announced']")
@@ -39,6 +41,12 @@ class OffPlanPage(BasePage):
         sleep(5)
         self.wait_for_element_click(*self.PRE_SALE_BTN)
         self.driver.save_screenshot("screenshots/06_on_sale_btn.png")
+
+
+    def price_tab(self):
+        sleep(5)
+        self.wait_for_element_click(*self.PRICE_TAB)
+        self.driver.save_screenshot("screenshots/05_price_TAB.png")
 
 
     def verify_off_plan_page_opened(self):

@@ -14,13 +14,13 @@ def browser_init(context, scenario_name):
     :param context: Behave context
     """
     ## CHROME ##
-    # driver_path = ChromeDriverManager().install()
-    # service = Service(driver_path)
-    # context.driver = webdriver.Chrome(service=service)
+    driver_path = ChromeDriverManager().install()
+    service = Service(driver_path)
+    context.driver = webdriver.Chrome(service=service)
 
 
     ## FIREFOX ##
-    #context.driver = webdriver.Firefox()
+    # context.driver = webdriver.Firefox()
 
 
     ## HEADLESS MODE ##
@@ -35,12 +35,12 @@ def browser_init(context, scenario_name):
 
     ### BROWSERSTACK ###
    # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
-    bs_user = 'nicoolumese_7cY5dg'
-    bs_key = 'YHgF8m3qX8JfM2PCeXPs'
-    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-
-    options = Options()
-    # bstack_options = {
+   #  bs_user = 'nicoolumese_7cY5dg'
+   #  bs_key = 'YHgF8m3qX8JfM2PCeXPs'
+   #  url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+   #
+   #  options = Options()
+   #  # bstack_options = {
     #     "os" : "Samsung",
     #     "osVersion" : "13",
     #     'browserName': 'Chrome',
@@ -48,15 +48,15 @@ def browser_init(context, scenario_name):
     # }
 
 
-    bstack_options = {
-        'deviceName': 'Samsung Galaxy S22 Ultra',  # Replace with desired device
-        'platformName': 'Android',  # Or 'iOS'
-        'browserName': 'Chrome',  # Mobile Chrome browser
-        'sessionName': scenario_name,
-        'interactiveDebugging': True
-    }
-    options.set_capability('bstack:options', bstack_options)
-    context.driver = webdriver.Remote(command_executor=url, options=options)
+    # bstack_options = {
+    #     'deviceName': 'Samsung Galaxy S22 Ultra',  # Replace with desired device
+    #     'platformName': 'Android',  # Or 'iOS'
+    #     'browserName': 'Chrome',  # Mobile Chrome browser
+    #     'sessionName': scenario_name,
+    #     'interactiveDebugging': True
+    # }
+    # options.set_capability('bstack:options', bstack_options)
+    # context.driver = webdriver.Remote(command_executor=url, options=options)
 
 
 
