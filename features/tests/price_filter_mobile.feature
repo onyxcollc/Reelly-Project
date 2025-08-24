@@ -9,5 +9,5 @@ Feature: Users should be able to give a range of price
     When Click on Off plan bottom left of screen
     Then Verify the off-plan opens
     When Click Price
-    And  Fill in Min 500000 and Max 1000000
+    And  Fill in Min 700000 and Max 1050000
     Then Verify each product contains the PreSale (EOI) tag

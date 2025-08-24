@@ -14,9 +14,9 @@ def browser_init(context, scenario_name):
     :param context: Behave context
     """
     ## CHROME ##
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service)
 
 
     ## FIREFOX ##
@@ -61,14 +61,14 @@ def browser_init(context, scenario_name):
 
 
     ### Chrome Mobile Emulation ###
-    # mobile_emulation = {"deviceName": "iPhone SE"}
-    # options = webdriver.ChromeOptions()
-    # options.add_experimental_option("mobileEmulation", mobile_emulation)
-    # service = Service(ChromeDriverManager().install())
-    # context.driver = webdriver.Chrome(service=service, options=options)
+    mobile_emulation = {"deviceName": "iPhone SE"}
+    options = webdriver.ChromeOptions()
+    options.add_experimental_option("mobileEmulation", mobile_emulation)
+    service = Service(ChromeDriverManager().install())
+    context.driver = webdriver.Chrome(service=service, options=options)
 
 
-    context.driver.maximize_window()
+    # context.driver.maximize_window()
     context.driver.implicitly_wait(4)
     context.driver.wait = WebDriverWait(context.driver,10)
     context.app = Application(context.driver)
